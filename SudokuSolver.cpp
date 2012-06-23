@@ -2,6 +2,17 @@
 #include "AlgorithmBase.h"
 #include "Singles.h"
 #include "HiddenSingles.h"
+#include "LockedCandidates.h"
+#include "NakedPairs.h"
+#include "NakedTriples.h"
+#include "NakedQuads.h"
+#include "HiddenPairs.h"
+#include "HiddenTriples.h"
+#include "HiddenQuads.h"
+#include "XWing.h"
+#include "Swordfish.h"
+#include "Jellyfish.h"
+#include "XYWing.h"
 #include "Unsolveable.h"
 #include <iostream>
 #include <boost/shared_ptr.hpp>
@@ -31,6 +42,17 @@ bool SudokuSolver::solveByLogic()
   std::vector<boost::shared_ptr<Algorithm::AlgorithmBase> > algorithms;
   algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::Singles));
   algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::HiddenSingles));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::LockedCandidates));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::NakedPairs));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::NakedTriples));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::NakedQuads));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::HiddenPairs));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::HiddenTriples));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::HiddenQuads));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::XWing));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::Swordfish));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::Jellyfish));
+  algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::XYWing));
   algorithms.push_back(boost::shared_ptr<Algorithm::AlgorithmBase>(new Algorithm::Unsolveable));
 
   while (!workingPuzzle_.solved() && workingPuzzle_.solveable())
